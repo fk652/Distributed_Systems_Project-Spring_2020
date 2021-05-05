@@ -1,0 +1,47 @@
+{{ template "header.html" .}}
+
+{{ if .ErrorTitle }}
+<p class="bg-danger">
+  {{.ErrorTitle}}: {{.ErrorMessage}}
+</p>
+
+{{ else }}
+
+<h1><font color="white"> {{.username}} Articles  </font></h1>
+
+{{ if .showFollowButton}}
+{{ if eq .isFollowed true}}
+<form id="unfollow-form" class="form" action="/u/unfollow" method="POST"></form>
+<button type="submit" form="unfollow-form" class="btn btn-primary" id="username" name="username"
+  value="{{.username}}">Unfollow</button>
+{{ else }}
+<form id="follow-form" class="form" action="/u/follow" method="POST"></form>
+<button type="submit" form="follow-form" class="btn btn-primary" id="username" name="username"
+  value="{{.username}}">Follow</button>
+{{ end }}
+{{ end }}
+
+<br> <br>
+
+{{ $localtime := .localtime }}
+<div class="row row-cols-1 row-cols-md-3">
+  {{ range .payload }}
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-header">
+        <a href="/article/articleID/{{.ID}}">
+          <h2>{{.Title}}</h2>
+        </a>
+      </div>
+      <div class="card-body">
+        <p>Posted on {{  call $localtime.Convert .PostDate }}</p>
+
+        <p>{{.Content}}</p>
+      </div>
+    </div>
+    </div>
+    {{ end }}
+  </div>
+  {{end}}
+
+  {{ template "footer.html" .}}

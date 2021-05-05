@@ -1,0 +1,52 @@
+{{ template "header.html" .}}
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        {{ if .ErrorTitle}}
+        <p class="bg-danger">
+            {{.ErrorTitle}}
+        </p>
+        {{end}}
+        </br>
+        </br>
+        <h3>
+            <font color="white">Search By Username</font>
+        </h3>
+        <form class="form" action="/article/search" method="POST">
+            <div class="form-group">
+                <label for="username">
+                    <font color="white">Username</font>
+                </label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                    style="width: 300px;" 
+                    pattern="^[A-Za-z0-9]+(?: +[A-Za-z0-9]+)*$"
+                    title="No leading or trailing blank spaces" 
+                    required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        </br>
+        </br>
+        </br>
+        <h3>
+            <font color="white">Search By Article ID Number</font>
+            </h1>
+            <form class="form" action="/article/search" method="POST">
+                <div class="form-group">
+                    <label for="articleID">
+                        <font color="white">Article ID</font>
+                    </label>
+                    <input type="text" class="form-control" id="articleID" name="articleID" placeholder="ID Number"
+                        pattern="[0-9.]+_[0-9]{1,}"
+                        title="Must be a number_number"
+                        style="width: 150px;" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+
+    </div>
+</div>
+
+{{ template "footer.html" .}}

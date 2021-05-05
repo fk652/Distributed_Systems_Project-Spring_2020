@@ -1,0 +1,36 @@
+{{ template "header.html" .}}
+
+{{ if .notify}}
+{{range .notify}}
+<h2> <font color="white">
+  {{.}}
+</font> </h2>
+{{end}}
+{{ end }}
+
+{{ $localtime := .localtime }}
+
+</br>
+<div class="row row-cols-1 row-cols-md-3">
+  {{range .payload }}
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-header">
+        <a href="/article/articleID/{{.ID}}">
+          <h2><center>{{.Title}}</center></h2>
+        </a>
+      </div>
+      <div class="card-body">
+        <center>
+          <h3>{{.Content}}</h3>
+          </center>
+        <center>
+        <p><p><p>Posted by <a href="/article/userArticles/{{.User}}">{{.User}}</a> <br> {{ call $localtime.Convert .PostDate }}</p></p></p>
+        </center>
+
+      </div>
+    </div>
+    </div>
+    {{end}}
+  </div>
+  {{ template "footer.html" .}}

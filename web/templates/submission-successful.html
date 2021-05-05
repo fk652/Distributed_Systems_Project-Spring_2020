@@ -1,0 +1,11 @@
+{{ template "header.html" .}}
+
+<div>
+  <strong> <font color="white">
+    The article was successfully submitted.
+  </font> </strong>
+  <br>
+  <a href="/article/articleID/{{.payload.ID}}">{{.payload.Title}}</a>
+</div>
+    
+{{ template "footer.html" .}}

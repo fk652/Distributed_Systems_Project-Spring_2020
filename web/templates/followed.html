@@ -1,0 +1,35 @@
+{{ template "header.html" .}}
+
+{{ if .ErrorTitle}}
+<p class="bg-danger">
+  {{.ErrorTitle}}: {{.ErrorMessage}}
+</p>
+
+{{ else if .notify}}
+<h1> <font color="white">
+  {{.notify}}
+</font> </h1>
+{{ end }}
+
+</br>
+
+
+<div class="row row-cols-1 row-cols-md-3">
+  {{range $username := .payload }}
+  <div class="col mb-4">
+    <div class="card">
+      <form id="unfollow-form" class="form" action="/u/unfollow" method="POST"></form>
+      <div class="card-header">
+        <a href="/article/userArticles/{{$username}}">
+          <h2>{{$username}}</h2>
+      </div>
+      <div class="card-body">
+        </a>
+        <button type="submit" form="unfollow-form" class="btn btn-primary" id="username" name="username"
+          value="{{$username}}">Unfollow</button>
+      </div>
+    </div>
+    </div>
+    {{end}}
+  </div>
+  {{ template "footer.html" .}}

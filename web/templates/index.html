@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html>
+  <style>
+    #outer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    }
+    #bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 0;
+}
+
+body{
+  background-image: url('/img/photo.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+.boxed {
+  border: 1px solid green ;
+}
+
+  </style>
+
+  <head>
+    <title>{{ .title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+    <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </head>
+
+  <body class="container">
+
+
+    <div style="  position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 40%;
+    width: 700px;
+    margin: -100px 0 0 -150px;">
+
+  <div class="card card-default col-sm-10">
+    
+    <h1 class="card-header" >Welcome to NotTwitter</h1>
+    <div class="card-body">
+      <p>Already have an account? <a href="/u/login">Sign in here</a>.</p>
+      <br>
+      <p>Don't have an account? <a href="/u/register">Sign up now</a>.</p>
+      <br>
+      <p>Facing 401 errors when clicking the above? <a href="/u/logout">Try clean session</a>.</p>
+    </div>
+  </div>
+</div>
+{{ template "footer.html" .}}

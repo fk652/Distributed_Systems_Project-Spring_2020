@@ -1,0 +1,139 @@
+
+syntax = "proto3";
+
+// option java_multiple_files = true;
+// option java_package = "io.grpc.examples.helloworld";
+// option java_outer_classname = "HelloWorldProto";
+option go_package = ".;commonpb";
+
+package commonpb;
+
+service Auth {
+
+    // isUserValid(username, password string) bool
+    rpc EnsureLoggedIn (BoolRequest) returns (BoolReply) {}
+
+    // registerNewUser(username, password string) (*user, error)
+    rpc EnsureNotLoggedIn (BoolRequest) returns (BoolReply) {}
+
+    // isUsernameAvailable(username string) bool
+    rpc SetUserStatus (Request) returns (BoolReply) {}
+
+}
+
+service Backend {
+
+    // user
+    // isUserValid(username, password string) bool
+    rpc IsUserValid (AccountRequest) returns (BoolReply) {}
+
+    // registerNewUser(username, password string) (*user, error)
+    rpc RegisterNewUser (AccountRequest) returns (BoolReply) {}
+
+    // isUsernameAvailable(username string) bool
+    rpc isUsernameAvailable (UsernameRequest) returns (BoolReply) {}
+
+    // isFollowed(username string) (bool, int, error)
+    rpc IsFollowed (FollowRequest) returns (IsFollowedReply) {}
+
+    // addFollow(userToFollow string) error
+    rpc AddFollow (FollowRequest) returns (Reply) {}
+
+    // removeFollow(userToUnfollow string) error
+    rpc RemoveFollow (FollowRequest) returns (Reply) {}
+
+    // getFollowedUsers() ([]string, error)
+    rpc GetFollowedUsers (UsernameRequest) returns (UsernameListReply) {}
+
+
+    // article
+    // getAllArticles() []article 
+    rpc GetAllArticles (Request) returns (ArticleListReply) {}
+
+    // getSomeArticles() []article
+    rpc GetSomeArticles (UsernameRequest) returns (ArticleListReply) {}
+
+    // getArticleByID(id int) (*article, error)
+    rpc GetArticleByID (ArticleIDRequest) returns (ArticleReply) {}
+
+    // getArticleByUser(user string) ([]article, error)
+    rpc GetArticleByUser (UsernameRequest) returns (ArticleListReply) {}
+
+    // createNewArticle(title, content string, user string, timestampSeconds string) (*article, error)
+    rpc CreateNewArticle (NewArticleRequest) returns (ArticleReply) {}
+}
+
+// Backend Struct Definitions
+message Article {
+	string ID = 1;
+	string User = 2;
+	int64 PostDate = 3;
+	string Title = 4;
+	string Content = 5;
+}
+
+
+// Requests
+message Request {
+    string message = 1;
+}
+
+message BoolRequest {
+    bool request = 1;
+}
+
+message ArticleIDRequest {
+    string id = 1;
+}
+
+message UsernameRequest {
+    string username = 1;
+}
+
+message NewArticleRequest {
+    string title = 1;
+    string content = 2;
+    string user = 3;
+    int64 timestampSeconds = 4;
+}
+
+message AccountRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message FollowRequest {
+    string followUser = 1;
+    string thisUser = 2;
+}
+
+
+// Replies
+message Reply {
+    string message = 1;
+}
+
+message UsernameReply {
+    string username = 1;
+}
+
+message BoolReply {
+    bool reply = 1;
+}
+
+message UsernameListReply {
+    repeated string followList = 1;
+}
+
+message IsFollowedReply {
+    bool found = 1;
+    int64 index = 2;
+}
+
+message ArticleListReply {
+    repeated Article articles = 1;
+}
+
+message ArticleReply {
+    Article article = 1;
+}

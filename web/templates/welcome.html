@@ -1,0 +1,16 @@
+{{ template "header.html" .}}
+
+<h1>Article</h1>
+
+{{range .payload }}
+<div class="boxed">
+  <a href="/article/articleID/{{.ID}}">
+    <h2>{{.Title}}</h2>
+  </a>
+
+  <p>Posted by <a href="/article/userArticles/{{.User}}">{{.User}}</a> on {{.PostDate}}</p>
+
+  <p>{{.Content}}</p>
+</div>
+{{end}}
+{{ template "footer.html" .}}

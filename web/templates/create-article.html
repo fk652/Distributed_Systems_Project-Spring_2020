@@ -1,0 +1,29 @@
+{{ template "header.html" .}}
+
+<h1><font color="white"><center>Create Article</center></font></h1>
+
+
+<div class="panel panel-default col-sm-12">
+  <div class="panel-body">
+    {{ if .ErrorTitle}}
+    <p class="bg-danger">
+      {{.ErrorTitle}}: {{.ErrorMessage}}
+    </p>
+    {{end}}
+    <form class="form" action="/article/create" method="POST">
+      <div class="form-group">
+        <label for="title"><font color="white">Title</font></label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Title" 
+        pattern="^[A-Za-z0-9]+(?: +[A-Za-z0-9]+)*$"
+        title="No leading or trailing blank spaces"
+        required>
+      </div>
+      <div class="form-group">
+        <label for="content"><font color="white">Content</font></label>
+        <textarea name="content" class="form-control" rows="10" id="content" placeholder="Article Content" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>  
+{{ template "footer.html" .}}

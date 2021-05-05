@@ -1,0 +1,24 @@
+{{ template "header.html" .}}
+
+{{ if .ErrorTitle}}
+<p class="bg-danger">
+    {{.ErrorTitle}}: {{.ErrorMessage}}
+</p>
+
+{{ else if .UnfollowSuccess}}
+<div> <font color="white">
+    You have successfully unfollowed {{ .UnfollowedUser }}
+</font> </div>
+
+{{ else if .FollowSuccess}}
+<div> <font color="white">
+    You have successfully followed {{ .FollowedUser }}
+</font> </div>
+
+{{ else }}
+<p class="bg-danger"> <font color="white">
+    You're not supposed to be here!
+</font> </p>
+{{ end }}
+
+{{ template "footer.html" .}}
