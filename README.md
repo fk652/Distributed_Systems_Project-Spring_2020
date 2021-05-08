@@ -1,7 +1,3 @@
-[![Build Status](https://travis-ci.com/Distributed-Systems-CSGY9223/fk652-sl5202-final-project.svg?token=xN9AKxnyzevD59kRtRmw&branch=master)](https://travis-ci.com/Distributed-Systems-CSGY9223/fk652-sl5202-final-project)
-
-[![Go Report Card](https://goreportcard.com/badge/github.com/sujaylokesh/NotTwitter)](https://goreportcard.com/report/github.com/sujaylokesh/NotTwitter)
-
 # Distributed Systems: Final Project
 ## Our Project Details
 Our project is built using the Gin-Gonic go framework, gRPCs, and etcd Raft.
