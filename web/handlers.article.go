@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	pb "github.com/fk652/import/commonpb"
+	pb "commonpb"
 )
 
 func showIndexPage(c *gin.Context) {

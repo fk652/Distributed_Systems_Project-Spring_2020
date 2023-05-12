@@ -7,7 +7,7 @@ import (
 	"net"
 	"time"
 
-	pb "github.com/fk652/import/commonpb"
+	pb "commonpb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/keepalive"
 )

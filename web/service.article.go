@@ -11,7 +11,7 @@ import (
 
 	"context"
 
-	pb "github.com/fk652/import/commonpb"
+	pb "commonpb"
 )
 
 func getWelcomePage(c *gin.Context) {

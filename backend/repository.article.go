@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	pb "github.com/fk652/import/commonpb"
+	pb "commonpb"
 )
 
 func (s *server) GetAllArticles(ctx context.Context, args *pb.Request) (*pb.ArticleListReply, error) {

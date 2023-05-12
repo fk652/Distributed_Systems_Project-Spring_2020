@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"strings"
 
-	pb "github.com/fk652/import/commonpb"
+	pb "commonpb"
 )
 
 func (s *server) IsUserValid(ctx context.Context, args *pb.AccountRequest) (*pb.BoolReply, error) {

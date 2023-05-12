@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	pb "github.com/fk652/import/commonpb"
+	pb "commonpb"
 	"github.com/gin-gonic/gin"
 )
 

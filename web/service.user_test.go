@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	pb "github.com/fk652/import/commonpb"
+	pb "commonpb"
 )
 
 func TestPerformLogin(t *testing.T) {

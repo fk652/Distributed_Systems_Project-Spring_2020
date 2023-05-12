@@ -12,7 +12,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	pb "github.com/fk652/import/commonpb"
+	pb "commonpb"
 )
 
 func performLogin(c *gin.Context) {

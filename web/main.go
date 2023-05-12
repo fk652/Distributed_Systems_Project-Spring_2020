@@ -8,7 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	pb "github.com/fk652/import/commonpb"
+	pb "commonpb"
 	"google.golang.org/grpc"
 )
 

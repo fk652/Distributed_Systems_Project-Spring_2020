@@ -1,8 +1,3 @@
 #!/usr/bin/env bash
 
-cd auth
-./auth
-cd ../backend
-./backend
-cd ../web
-./web
+./auth.sh & ./backend.sh & ./web.sh
