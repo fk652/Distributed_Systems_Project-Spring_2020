@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-./auth.sh & ./backend.sh & ./web.sh
+./auth.sh & ./backend.sh & ./web.sh && kill $;
